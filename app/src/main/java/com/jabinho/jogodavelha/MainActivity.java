@@ -1,6 +1,7 @@
 package com.jabinho.jogodavelha;
 
 import android.content.DialogInterface;
+import android.support.annotation.ArrayRes;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -35,12 +36,20 @@ public class MainActivity extends AppCompatActivity {
             arrayButton[9] = findViewById(R.id.btn9);
 
 
-
     }
 
     // Colocar o X ou 0 no botão clicado
     private void onClickButton(){
         for (int x=1; x<10;x++){
+            Button reset = findViewById(R.id.btnreset);
+            reset.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    recomecar();
+
+                }
+            });
+
             final int finalX = x;
             arrayButton[finalX].setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -68,5 +77,13 @@ public class MainActivity extends AppCompatActivity {
             arrayButton[x].setText(matriz[x]);
         }
     }
+
+    private void recomecar(){
+        jogadas=0;
+        for (int x =1; x<10; x++) {
+        matriz[x] = "";
+        }
+        exibirButtons();
+        }
 
 }

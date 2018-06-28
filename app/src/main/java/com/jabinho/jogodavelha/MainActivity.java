@@ -41,7 +41,9 @@ public class MainActivity extends AppCompatActivity {
     // Colocar o X ou 0 no botão clicado
     private void onClickButton(){
         for (int x=1; x<10;x++){
+            //Declarei o botão de reset e puxei pelo id
             Button reset = findViewById(R.id.btnreset);
+            //Caso ele fosse clicado acionaria o metódo recomeçar
             reset.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -77,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
             arrayButton[x].setText(matriz[x]);
         }
     }
-
+//esse método apaga toda a matriz, ou seja, todos os botãos que foram preenchidos
     private void recomecar(){
         jogadas=0;
         for (int x =1; x<10; x++) {
